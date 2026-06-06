@@ -1,7 +1,7 @@
 mod utils;
 
 use std::io;
-use utils::colors::Color;
+use utils::{colors, vec3};
 
 fn main() {
     fn createimage() {
@@ -17,12 +17,12 @@ fn main() {
                 let g = j as f64 / (IMAGE_WIDTH - 1) as f64;
                 let b = 0.25;
 
-                let pixel_color = Color::new(r, g, b);
-                utils::colors::write_color(&mut io::stdout(), pixel_color);
+                let pixel_color = colors::Color::new(r, g, b);
+                colors::write_color(&mut io::stdout(), pixel_color);
             }
         }
         eprint!("\nDone.\n");
     }
     createimage();
-    utils::vec3::hello();
+    vec3::hello();
 }
