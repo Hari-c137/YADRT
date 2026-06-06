@@ -1,5 +1,8 @@
 mod utils;
 
+use std::io;
+use utils::colors::Color;
+
 fn main() {
     fn createimage() {
         const IMAGE_WIDTH: i32 = 256;
@@ -14,11 +17,8 @@ fn main() {
                 let g = j as f64 / (IMAGE_WIDTH - 1) as f64;
                 let b = 0.25;
 
-                let ir = (255.999 * r) as i32;
-                let ig = (255.999 * g) as i32;
-                let ib = (255.999 * b) as i32;
-
-                println!("{} {} {}\n", ir, ig, ib);
+                let pixel_color = Color::new(r, g, b);
+                utils::colors::write_color(&mut io::stdout(), pixel_color);
             }
         }
         eprint!("\nDone.\n");
